@@ -23,12 +23,7 @@ def store_embeddings(company, news_list, embeddings):
     with engine.begin() as conn:
         conn.execute(
             text(
-                """
-                INSERT INTO news_embeddings
-                (company, title, link, published, content, embedding)
-                VALUES
-                (:company, :title, :link, :published, :content, :embedding)
-                """
+                """INSERT INTO news_embeddings (company, title, link, published, content, embedding) VALUES (:company, :title, :link, :published, :content, :embedding)"""
             ),
             rows,
         )
